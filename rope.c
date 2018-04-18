@@ -149,11 +149,11 @@ size_t rope_wchar_count(rope *r) {
 #define MIN(x,y) ((x) > (y) ? (y) : (x))
 #define MAX(x,y) ((x) > (y) ? (x) : (y))
 
-#ifdef _WIN32
+//#ifdef _WIN32
 inline static long random() {
   return rand();
 }
-#endif
+//#endif
 
 static uint8_t random_height() {
   // This function is horribly inefficient. I'm throwing away heaps of entropy, and
@@ -529,7 +529,7 @@ static ROPE_RESULT rope_insert_at_iter(rope *r, rope_node *e, rope_iter *iter, c
 
     // If we're not at the end of the current node, we'll need to remove
     // the end of the current node's data and reinsert it later.
-    size_t num_end_chars, num_end_bytes = e->num_bytes - offset_bytes;
+    size_t num_end_chars=0, num_end_bytes = e->num_bytes - offset_bytes;
     if (num_end_bytes) {
       // We'll pretend like the character have been deleted from the node, while leaving
       // the bytes themselves there (for later).
