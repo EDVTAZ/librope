@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-CFLAGS=-O2 -Wall -I. -std=c99
+CFLAGS=-O2 -Wall -I. -std=c99 -ggdb
 
 UNAME := $(shell uname)
 
